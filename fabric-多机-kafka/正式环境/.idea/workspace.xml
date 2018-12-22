@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="99a45596-5ad5-4acb-aed7-e5ec9a4fe606" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stop.sh" beforeDir="false" afterPath="$PROJECT_DIR$/stop.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yaml.zip" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/11/docker-zk.yaml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="532">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
@@ -54,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/11/base/orderer-base.yaml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="551">
-              <caret line="29" column="63" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
+              <caret line="29" column="65" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -71,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/stop.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+            <state relative-caret-position="209">
+              <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -225,7 +223,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14285715" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18017058" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -299,13 +297,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crypto-config.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/crypto-config.yaml" />
     <entry file="file://$PROJECT_DIR$/11/base/docker-compose-base.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="679">
@@ -362,10 +354,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/11/docker-zk.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/11/base/orderer-base.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
-          <caret line="29" column="63" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
+          <caret line="29" column="65" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -386,13 +385,6 @@
     <entry file="file://$PROJECT_DIR$/22/crypto-config.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/11/docker-zk.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/start.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -402,8 +394,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/stop.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+        <state relative-caret-position="209">
+          <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
         </state>
       </provider>
     </entry>
