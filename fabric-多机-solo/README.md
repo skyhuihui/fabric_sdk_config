@@ -1,0 +1,1 @@
+简单的多机 orderer机  orderer+peer。 peer机 只有peer，两个机子
