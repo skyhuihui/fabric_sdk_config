@@ -1,0 +1,26 @@
+# COPYRIGHT Hello Corp. All Rights Reserved.
+#
+# Author: Haley
+#
+
+version: '2'
+
+services:
+  z1:
+    extends:
+      file: base/kafka-base.yaml
+      service: zookeeper
+    container_name: z1
+    hostname: z1
+    environment:
+      # ID在集合中必须是唯一的并且应该有一个值在1-255之间。
+      - ZOO_MY_ID=1
+      # 组成ZK集合的服务器列表。客户端使用的列表必须与ZooKeeper服务器列表所拥有的每一个ZK服务器相匹配。
+      # 有两个端口号：第一个是追随者用来连接领导者的，第二个是领导人选举。
+      - ZOO_SERVERS=server.1=z1:2888:3888 server.2=z2:2888:3888
+    volumes:
+       # 数据固化，将zookeeper产生的数据映射到本地，当zookeeper丢失等风险是不至于数据丢失
+       - ./chainData/zookeeper/z1/:/data/
+    extra_hosts:
+      - "z1:114.115.200.251"
+      - "z2:39.104.77.237"
