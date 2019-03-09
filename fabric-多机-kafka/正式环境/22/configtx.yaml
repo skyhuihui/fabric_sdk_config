@@ -175,6 +175,7 @@ Channel: &ChannelDefaults
 #  生成锚节点更新配置文件  同样基于 configtx_buk.yaml 配置文件中的 OrgsChannel 模板，为每个组织分别生成锚节点更新配置，且注意指定对应的组织名称。
 #  sudo ../bin/configtxgen -profile OrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1ChainHero
 #
+# /root/hyfa/fabric-sample-kafka/bin/configtxgen
 #  ~/go/src/github.com/hyperledger/fabric-samples/bin/configtxgen -profile OrdererGenesis -outputBlock ./artifacts/orderer.genesis.block
 #  ~/go/src/github.com/hyperledger/fabric-samples/bin/configtxgen  -profile OrgsChannel -outputCreateChannelTx ./artifacts/chainhero.channel.tx -channelID chainhero
 #  ~/go/src/github.com/hyperledger/fabric-samples/bin/configtxgen  -profile OrgsChannel -outputCreateChannelTx ./artifacts/token.channel.tx -channelID token

@@ -8,7 +8,7 @@ version: '2'
 services:
 
   zookeeper:
-    image: hyperledger/fabric-zookeeper
+    image: hyperledger/fabric-zookeeper:0.4.10
     restart: always
     environment:
       - quorumListenOnAllIPs=true
@@ -18,7 +18,7 @@ services:
       - 3888:3888
   
   kafka:
-    image: hyperledger/fabric-kafka
+    image: hyperledger/fabric-kafka:0.4.10
     restart: always
     environment:
       # message.max.bytes
