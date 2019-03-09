@@ -9,28 +9,30 @@ No3 : peer
 111.111.111.111  orderer+zookeeper0+kafka0+peer0
 222.222.222.222  orderer1+zookeeper1+kafka1+peer1
 
+开放全部端口 配置环境一样， 版本一致
+
 要开放端口
 7050,7051,7052,7053,9092,2181,2888,3888
 
 节点信息 
 
-机器1 peer1+couchdb0+cli0  114.115.200.251   机器配置， 8G内存 40G 硬盘，数据存挂载盘
+机器1 peer1+couchdb0  114.115.200.251   机器配置， 8G内存 40G 硬盘，数据存挂载盘
 
-机器2 orderer0+zookeeper1+kafka0+peer0+couchdb1+cli1  作为创建通道实例化链码的节点，其他节点加入通道
+机器2 orderer0+zookeeper1+kafka0+peer0+couchdb1  作为创建通道实例化链码的节点，其他节点加入通道  39.104.77.237
 
-机器3 orderer1+zookeeper2+kafka1+peer2+couchdb2+cli2 
+机器3 orderer1+zookeeper2+kafka1+peer2+couchdb2 
 
-机器4 orderer2+zookeeper3+kafka2+peer3+couchdb3+cli3
+机器4 orderer2+zookeeper3+kafka2+peer3+couchdb3
 
-机器5 orderer3+zookeeper4+kafka3+peer4+couchdb4+cli4
+机器5 orderer3+zookeeper4+kafka3+peer4+couchdb4
 
-机器6 orderer4+zookeeper5+kafka4+peer5+couchdb5+cli5
+机器6 orderer4+zookeeper5+kafka4+peer5+couchdb5
 
 如升级fabric 版本（镜像） couchdb也要调整
 
 新增节点 ：
 
-  机器要求： （每次invoke量10000左右） 8G 内存+ 500G 硬盘内存+ 3.0GHZ cpu
+  机器要求：  16G 内存+ 500G 硬盘内存+ 3.0GHZ cpu（每次提交交易量待测试）
 		节点部署 orderer+peer+cli+couchdb+zookeeper+kafka+ca
 		
   
@@ -43,20 +45,24 @@ No3 : peer
 	
 	（新增zookeeper）
 	 修改 全部文件docker_zk.yaml 配置 extra_hosts，ZOO_SERVERS，ZOO_MY_ID，volumes，hostname，container_name，
+	 extra_hosts 配置 zookeeper kafka
 	
 	 （新增kafka）
 	 修改 全部文件docker_kafka.yaml 配置 extra_hosts,volumes,KAFKA_BROKER_ID,KAFKA_MIN_INSYNC_REPLICAS,KAFKA_DEFAULT_REPLICATION_FACTOR,KAFKA_ZOOKEEPER_CONNECT,hostname,container_name
 	  KAFKA_BROKER_ID  		kafkaid 
 	  KAFKA_MIN_INSYNC_REPLICAS	小于 KAFKA_DEFAULT_REPLICATION_FACTOR 小于kafka节点数
+	   extra_hosts 配置 zookeeper kafka
 	  
 	  
 	  （新增orderer）
 	  修改 全部文件docker-compose-orderer.yaml，配置 extra_hosts，volumes，container_name，extends service
 	  修改 docker-compose-base.yaml文件 新增orderer 参照例子增肌orderer peer同理
+	  extra_hosts 配置 kafka
 	  
 	  (新增peer)
 	  修改 全部文件docker-compose-peer.yaml，配置 extra_hosts，container_name，extends service
 	  修改 docker-compose-base.yaml文件 新增peer 参照例子增肌peer orderer同理
+	   extra_hosts 配置 orderer peer
 	  
 	  couchdb， cli， ca配置在 docker-compose-peer.yaml
 	  

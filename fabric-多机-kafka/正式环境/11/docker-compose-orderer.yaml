@@ -18,10 +18,10 @@ services:
       - ./crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer.hf.chainhero.io/msp:/var/hyperledger/orderer/msp
       - ./crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer.hf.chainhero.io/tls:/var/hyperledger/orderer/tls
     extra_hosts:
-#      - "z1:114.115.200.251"
+#      - "z1:39.104.77.237"
 #      - "z2:39.104.77.237"
-      - "k1:114.115.200.251"
-      - "k2:47.90.98.63"
-#      - "orderer.hf.chainhero.io:114.115.200.251"
+      - "k1:39.104.77.237"
+      - "k2:114.115.200.251"
+#      - "orderer.hf.chainhero.io:39.104.77.237"
 #      - "orderer1.hf.chainhero.io:39.104.77.237"
 

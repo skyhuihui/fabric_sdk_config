@@ -27,7 +27,7 @@ services:
       - ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
       - ORDERER_KAFKA_RETRY_SHORTTOTAL=30s
       - ORDERER_KAFKA_VERBOSE=true
-      - ORDERER_KAFKA_BROKERS=[114.115.200.251:9092,47.90.98.63:9092]
+      - ORDERER_KAFKA_BROKERS=[39.104.77.237:9092,114.115.200.251:9092]
      working_dir: /opt/gopath/src/github.com/hyperledger/fabric
      command: orderer
      volumes:

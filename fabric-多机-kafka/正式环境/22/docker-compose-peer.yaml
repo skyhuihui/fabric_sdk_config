@@ -29,7 +29,7 @@ services:
   depends_on:
     - couchdb1
   extra_hosts:
-    - "orderer.hf.chainhero.io:114.115.200.251"
-    - "orderer1.hf.chainhero.io:47.90.98.63"
-    - "peer0.org1.hf.chainhero.io:114.115.200.251"
+    - "orderer.hf.chainhero.io:39.104.77.237"
+    - "orderer1.hf.chainhero.io:114.115.200.251"
+    - "peer0.org1.hf.chainhero.io:39.104.77.237"
 

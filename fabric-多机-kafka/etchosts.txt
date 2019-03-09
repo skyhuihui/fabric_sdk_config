@@ -1,0 +1,10 @@
+114.115.200.251 z2
+114.115.200.251 k2
+114.115.200.251 orderer1.hf.chainhero.io
+114.115.200.251 peer1.org1.hf.chainhero.io
+114.115.200.251 couchdb1
+39.104.77.237 z1
+39.104.77.237 k1
+39.104.77.237 orderer.hf.chainhero.io
+39.104.77.237 peer0.org1.hf.chainhero.io
+39.104.77.237 couchdb0

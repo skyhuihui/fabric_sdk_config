@@ -13,7 +13,7 @@ services:
    volumes:
      - ./chainData/couchdb/couchdb0org1:/opt/couchdb/data
    ports:
-     - "6984:5984"
+     - "5984:5984"
 
  peer0.org1.hf.chainhero.io:
   container_name: peer0.org1.hf.chainhero.io
@@ -26,7 +26,7 @@ services:
   depends_on:
     - couchdb0
   extra_hosts:
-    - "orderer.hf.chainhero.io:114.115.200.251"
-    - "orderer1.hf.chainhero.io:47.90.98.63"
-    - "peer1.org1.hf.chainhero.io:47.90.98.63"
+    - "orderer.hf.chainhero.io:39.104.77.237"
+    - "orderer1.hf.chainhero.io:114.115.200.251"
+    - "peer1.org1.hf.chainhero.io:114.115.200.251"
       
