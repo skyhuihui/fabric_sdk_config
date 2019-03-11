@@ -36,5 +36,5 @@ https://shimo.im/docs/3WA56IBWVh4B1bxJ/ 《hyperledger 浏览器接入文档》
 
 https://shimo.im/docs/di4GdlvGTV02VW9Q/ 《fabric go sdk 环境快速搭建》
 
-如有问题联系本文 微信 1414948836
+如有问题联系本人 微信 1414948836
 
