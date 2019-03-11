@@ -1,0 +1,41 @@
+114.115.200.251 peer1.org1.hf.chainhero.io
+114.115.200.251 couchdb1
+39.104.77.237 z1
+39.104.77.237 k1
+39.104.77.237 orderer.hf.chainhero.io
+39.104.77.237 peer0.org1.hf.chainhero.io
+39.104.77.237 couchdb0
+1.1.1.1  orderer1.hf.chainhero.io
+1.1.1.1  z2
+1.1.1.1  k2
+1.1.1.1  peer2.org1.hf.chainhero.io
+1.1.1.1  couchdb2
+2.2.2.2  orderer2.hf.chainhero.io
+2.2.2.2  z3
+2.2.2.2  k3
+2.2.2.2  peer3.org1.hf.chainhero.io
+2.2.2.2  couchdb3
+3.3.3.3  orderer3.hf.chainhero.io
+3.3.3.3  z4
+3.3.3.3  k4
+3.3.3.3  peer4.org1.hf.chainhero.io
+3.3.3.3  couchdb4
+4.4.4.4  orderer4.hf.chainhero.io
+4.4.4.4  z5
+4.4.4.4  k5
+4.4.4.4  peer5.org1.hf.chainhero.io
+4.4.4.4  couchdb5
+
+
+机器1 							peer1+couchdb1  114.115.200.251   机器配置， 8G内存 40G 硬盘，数据存挂载盘
+
+机器2 orderer+zookeeper1+kafka1+peer0+couchdb0    39.104.77.237   作为创建通道实例化链码的节点，其他节点加入通道
+
+机器3 orderer1+zookeeper2+kafka2+peer2+couchdb2   1.1.1.1
+
+机器4 orderer2+zookeeper3+kafka3+peer3+couchdb3   2.2.2.2
+
+机器5 orderer3+zookeeper4+kafka4+peer4+couchdb4   3.3.3.3
+
+机器6 orderer4+zookeeper5+kafka5+peer5+couchdb5	  4.4.4.4
+

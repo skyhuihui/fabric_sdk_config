@@ -1,0 +1,26 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+
+  orderer4.hf.chainhero.io:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer4.hf.chainhero.io
+    container_name: orderer4.hf.chainhero.io
+    volumes:
+      # 数据固化，将orderer的数据映射到本地
+      - ./chainData/orderer/orderer4/:/var/hyperledger/production/
+      - ./crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer4.hf.chainhero.io/msp:/var/hyperledger/orderer/msp
+      - ./crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer4.hf.chainhero.io/tls:/var/hyperledger/orderer/tls
+    extra_hosts:
+      - "k1:39.104.77.237"
+      - "k2:1.1.1.1"
+      - "k3:2.2.2.2"
+      - "k4:3.3.3.3"
+      - "k5:4.4.4.4"
+

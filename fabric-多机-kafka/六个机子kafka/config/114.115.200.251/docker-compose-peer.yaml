@@ -1,0 +1,42 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+
+ couchdb1:
+   container_name: couchdb1
+   image: hyperledger/fabric-couchdb:0.4.10
+   volumes:
+     - ./chainData/couchdb/couchdb1org1:/opt/couchdb/data
+#   environment:
+#     - COUCHDB_USER=admin
+#     - COUCHDB_PASSWORD=password
+   ports:
+     - "5984:5984"
+
+ peer1.org1.hf.chainhero.io:
+  container_name: peer1.org1.hf.chainhero.io
+  extends:
+     file:  base/docker-compose-base.yaml
+     service: peer1.org1.hf.chainhero.io
+  environment:
+    - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+    - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
+  depends_on:
+    - couchdb1
+  extra_hosts:
+    - "orderer.hf.chainhero.io:39.104.77.237"
+    - "orderer1.hf.chainhero.io:1.1.1.1"
+    - "orderer2.hf.chainhero.io:2.2.2.2"
+    - "orderer3.hf.chainhero.io:3.3.3.3"
+    - "orderer4.hf.chainhero.io:4.4.4.4"
+    - "peer0.org1.hf.chainhero.io:39.104.77.237"
+    - "peer2.org1.hf.chainhero.io:1.1.1.1"
+    - "peer3.org1.hf.chainhero.io:2.2.2.2"
+    - "peer4.org1.hf.chainhero.io:3.3.3.3"
+    - "peer5.org1.hf.chainhero.io:4.4.4.4"
+

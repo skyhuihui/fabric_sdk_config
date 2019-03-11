@@ -1,0 +1,204 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+
+  orderer.hf.chainhero.io:
+    extends:
+      file: orderer-base.yaml
+      service: orderer-base
+    volumes:
+      - ../crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer.hf.chainhero.io/msp:/var/hyperledger/orderer/msp
+      - ../crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer.hf.chainhero.io/tls:/var/hyperledger/orderer/tls
+
+  orderer1.hf.chainhero.io:
+    extends:
+      file: orderer-base.yaml
+      service: orderer-base
+    volumes:
+      - ../crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer1.hf.chainhero.io/msp:/var/hyperledger/orderer/msp
+      - ../crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer1.hf.chainhero.io/tls:/var/hyperledger/orderer/tls
+
+  orderer2.hf.chainhero.io:
+    extends:
+      file: orderer-base.yaml
+      service: orderer-base
+    volumes:
+      - ../crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer2.hf.chainhero.io/msp:/var/hyperledger/orderer/msp
+      - ../crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer2.hf.chainhero.io/tls:/var/hyperledger/orderer/tls
+
+  orderer3.hf.chainhero.io:
+    extends:
+      file: orderer-base.yaml
+      service: orderer-base
+    volumes:
+      - ../crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer3.hf.chainhero.io/msp:/var/hyperledger/orderer/msp
+      - ../crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer3.hf.chainhero.io/tls:/var/hyperledger/orderer/tls
+
+
+  orderer4.hf.chainhero.io:
+    extends:
+      file: orderer-base.yaml
+      service: orderer-base
+    volumes:
+      - ../crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer4.hf.chainhero.io/msp:/var/hyperledger/orderer/msp
+      - ../crypto-config/ordererOrganizations/hf.chainhero.io/orderers/orderer4.hf.chainhero.io/tls:/var/hyperledger/orderer/tls
+
+  peer0.org1.hf.chainhero.io:
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.org1.hf.chainhero.io
+      - CORE_PEER_ADDRESS=peer0.org1.hf.chainhero.io:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer0.org1.hf.chainhero.io:7052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.hf.chainhero.io:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.hf.chainhero.io:7051
+      - CORE_PEER_LOCALMSPID=org1.hf.chainhero.io
+    volumes:
+        - /var/run/:/host/var/run/
+        # 数据固化，将peer的数据映射到本地，防止丢失
+        - ./chainData/peer/peer0org1:/var/hyperledger/production/
+        - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer0.org1.hf.chainhero.io/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer0.org1.hf.chainhero.io/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7051:7051
+      - 7052:7052
+      - 7053:7053
+
+  peer1.org1.hf.chainhero.io:
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.org1.hf.chainhero.io
+      - CORE_PEER_ADDRESS=peer1.org1.hf.chainhero.io:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer1.org1.hf.chainhero.io:7052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.hf.chainhero.io:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.hf.chainhero.io:7051
+      - CORE_PEER_LOCALMSPID=org1.hf.chainhero.io
+    volumes:
+        - /var/run/:/host/var/run/
+        # 数据固化，将peer的数据映射到本地，防止丢失
+        - ./chainData/peer/peer1org1:/var/hyperledger/production/
+        - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer1.org1.hf.chainhero.io/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer1.org1.hf.chainhero.io/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7051:7051
+      - 7052:7052
+      - 7053:7053
+
+
+  peer2.org1.hf.chainhero.io:
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer2.org1.hf.chainhero.io
+      - CORE_PEER_ADDRESS=peer2.org1.hf.chainhero.io:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer2.org1.hf.chainhero.io:7052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer2.org1.hf.chainhero.io:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.hf.chainhero.io:7051
+      - CORE_PEER_LOCALMSPID=org1.hf.chainhero.io
+    volumes:
+      - /var/run/:/host/var/run/
+      # 数据固化，将peer的数据映射到本地，防止丢失
+      - ./chainData/peer/peer2org1:/var/hyperledger/production/
+      - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer2.org1.hf.chainhero.io/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer2.org1.hf.chainhero.io/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7051:7051
+      - 7052:7052
+      - 7053:7053
+
+  peer3.org1.hf.chainhero.io:
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer3.org1.hf.chainhero.io
+      - CORE_PEER_ADDRESS=peer3.org1.hf.chainhero.io:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer3.org1.hf.chainhero.io:7052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer3.org1.hf.chainhero.io:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.hf.chainhero.io:7051
+      - CORE_PEER_LOCALMSPID=org1.hf.chainhero.io
+    volumes:
+      - /var/run/:/host/var/run/
+      # 数据固化，将peer的数据映射到本地，防止丢失
+      - ./chainData/peer/peer3org1:/var/hyperledger/production/
+      - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer3.org1.hf.chainhero.io/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer3.org1.hf.chainhero.io/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7051:7051
+      - 7052:7052
+      - 7053:7053
+
+  peer4.org1.hf.chainhero.io:
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer4.org1.hf.chainhero.io
+      - CORE_PEER_ADDRESS=peer4.org1.hf.chainhero.io:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer4.org1.hf.chainhero.io:7052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer4.org1.hf.chainhero.io:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.hf.chainhero.io:7051
+      - CORE_PEER_LOCALMSPID=org1.hf.chainhero.io
+    volumes:
+      - /var/run/:/host/var/run/
+      # 数据固化，将peer的数据映射到本地，防止丢失
+      - ./chainData/peer/peer4org1:/var/hyperledger/production/
+      - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer4.org1.hf.chainhero.io/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer4.org1.hf.chainhero.io/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7051:7051
+      - 7052:7052
+      - 7053:7053
+
+  peer5.org1.hf.chainhero.io:
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer5.org1.hf.chainhero.io
+      - CORE_PEER_ADDRESS=peer5.org1.hf.chainhero.io:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer5.org1.hf.chainhero.io:7052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer5.org1.hf.chainhero.io:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.hf.chainhero.io:7051
+      - CORE_PEER_LOCALMSPID=org1.hf.chainhero.io
+    volumes:
+      - /var/run/:/host/var/run/
+      # 数据固化，将peer的数据映射到本地，防止丢失
+      - ./chainData/peer/peer5org1:/var/hyperledger/production/
+      - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer5.org1.hf.chainhero.io/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer5.org1.hf.chainhero.io/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7051:7051
+      - 7052:7052
+      - 7053:7053
+
+  peer6.org1.hf.chainhero.io:
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer6.org1.hf.chainhero.io
+      - CORE_PEER_ADDRESS=peer6.org1.hf.chainhero.io:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer6.org1.hf.chainhero.io:7052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer6.org1.hf.chainhero.io:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.hf.chainhero.io:7051
+      - CORE_PEER_LOCALMSPID=org1.hf.chainhero.io
+    volumes:
+      - /var/run/:/host/var/run/
+      # 数据固化，将peer的数据映射到本地，防止丢失
+      - ./chainData/peer/peer6org1:/var/hyperledger/production/
+      - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer6.org1.hf.chainhero.io/msp:/etc/hyperledger/fabric/msp
+      - ../crypto-config/peerOrganizations/org1.hf.chainhero.io/peers/peer6.org1.hf.chainhero.io/tls:/etc/hyperledger/fabric/tls
+    ports:
+      - 7051:7051
+      - 7052:7052
+      - 7053:7053

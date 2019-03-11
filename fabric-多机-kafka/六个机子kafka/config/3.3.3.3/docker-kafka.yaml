@@ -1,0 +1,42 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+
+
+  k4:
+    extends:
+      file: base/kafka-base.yaml
+      service: kafka
+    container_name: k4
+    hostname: k4
+    environment:
+      - KAFKA_BROKER_ID=4
+      # min.insync.replicas=M --- 设置一个M值（例如1<M<N，查看下面的default.replication.factor）
+      # 数据提交时会写入至少M个副本（这些数据然后会被同步并且归属到in-sync副本集合或ISR）。
+      # 其它情况，写入操作会返回一个错误。接下来：
+      # 1. 如果channel写入的数据多达N-M个副本变的不可用，操作可以正常执行。
+      # 2. 如果有更多的副本不可用，Kafka不可以维护一个有M数量的ISR集合，因此Kafka停止接收写操作。Channel只有当同步M个副本后才可以重新可以写。
+      - KAFKA_MIN_INSYNC_REPLICAS=4
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=5
+      # 指向Zookeeper节点的集合，其中包含ZK的集合。
+      - KAFKA_ZOOKEEPER_CONNECT=z1:2181,z2:2181,z3:2181,z4:2181,z5:2181
+    volumes:
+       # kafka数据存储路径，映射到本地
+       - ./chainData/kafka/k4/:/tmp/kafka-logs/
+    extra_hosts:
+      - "z1:39.104.77.237"
+      - "z2:1.1.1.1"
+      - "z3:2.2.2.2"
+      - "z4:3.3.3.3"
+      - "z5:4.4.4.4"
+      - "k1:39.104.77.237"
+      - "k2:1.1.1.1"
+      - "k3:2.2.2.2"
+      - "k4:3.3.3.3"
+      - "k5:4.4.4.4"
+
