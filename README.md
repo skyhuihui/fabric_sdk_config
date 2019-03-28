@@ -3,7 +3,7 @@ fabric sdk的 配置文件， 单机多机， solo  kafka等
 
 fabric 学习方法
 
-fabric 基础 https://www.chaindesk.cn/columnlist.html?id=11  来自chaindesk
+fabric 基础 重点推荐  https://blog.csdn.net/weixin_44676392  
 
 拓展学习 学习使用 go sdk
 https://chainhero.io/2018/03/tutorial-build-blockchain-app-2/
