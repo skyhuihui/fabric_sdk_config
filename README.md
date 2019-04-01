@@ -1,7 +1,7 @@
 # fabric_config
 fabric sdk的 配置文件， 单机多机， solo  kafka等
 
-fabric 学习方法
+fabric 开源示例
 
 fabric 基础 重点推荐  https://blog.csdn.net/weixin_44676392  
 
